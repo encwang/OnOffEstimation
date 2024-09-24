@@ -21,14 +21,17 @@ for k = 1:1000
     Record = [Record;x y];
 end
 
+
+%%%%%%% Plot %%%%%%%
 RecordNew = rmoutliers(Record,'median');
 NumberOfOutlier = length(Record) - length(RecordNew);
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-nbins = 25;
-h = histogram(RecordNew(:,1),nbins,'Normalization','probability');
-hold on
-h = histogram(RecordNew(:,2),nbins,'Normalization','probability');
-legend({'$\hat{\alpha}$','$\hat{\beta}$'},'Interpreter','latex','FontSize',16)
+nbins = 30;
+figure
+h = histogram(RecordNew(:,1),nbins,'Normalization','pdf');
+figure
+h = histogram(RecordNew(:,2),nbins,'Normalization','pdf','FaceColor','r');
+% legend({'$\hat{\alpha}$','$\hat{\beta}$'},'Interpreter','latex','FontSize',16)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 MeanOfEstimates = mean(RecordNew);
 StdOfEstimates = std(RecordNew);

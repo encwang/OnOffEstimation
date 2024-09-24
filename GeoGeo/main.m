@@ -7,11 +7,11 @@ n = 100; p = 0.3; q = 0.8;
 Record = [];
 Record1 = []; % for asymptotic analysis
 
-for ind = 1:5000
+for ind = 1:1000
     DataGen
     [m1,m2] = MomentEst(aVec);
     % Record1 = [Record1; m1 m2]; % for asymptotic analysis
-    hatp = (m1-m2+(1-1/n)*m1^2)/(m1);
+    hatp = (m1-m2+(1-1/n)*m1^2)/(m1)
     hatq = (m1-m2+(1-1/n)*m1^2)/(n-m1);
     Record = [Record; hatp hatq];
 end

@@ -2,11 +2,7 @@
 % clc
 
 % tic
-%%%%%% parameter setting %%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% n = 10; % # of channels
-% p = 0.3; % stay prob in "on"
-% q = 0.8; % stay prob in "off"
+% parameter setting 
 K = 10^5; % number of periods observed
 
 % initial state 
@@ -25,6 +21,3 @@ for k = 2:K
     end
     aVec = [aVec sum(aa)];
 end
-
-% aVec = aVec(101:end);
-% toc

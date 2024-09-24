@@ -23,12 +23,13 @@ end
 RecordNew = rmoutliers(Record,'median');
 NumberOfOutlier = length(Record) - length(RecordNew);
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-nbins = 25;
-h = histogram(RecordNew(:,1),nbins,'Normalization','probability');
+nbins = 30;
+figure
+h = histogram(RecordNew(:,1),nbins,'Normalization','pdf');
+figure
+h = histogram(RecordNew(:,2),nbins,'Normalization','pdf','FaceColor','r');
 hold on
-h = histogram(RecordNew(:,2),nbins,'Normalization','probability');
-h = histogram(RecordNew(:,3),nbins,'Normalization','probability');
-legend({'$\hat{p}$','$\hat{C}$','$\hat{\alpha}$'},'Interpreter','latex','FontSize',16)
+h = histogram(RecordNew(:,3),nbins,'Normalization','pdf','FaceColor','y');
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 hatpMean = mean(RecordNew(:,1))
 hatCMean = mean(RecordNew(:,2))
